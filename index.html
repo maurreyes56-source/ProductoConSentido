@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#030609">
+  <meta name="color-scheme" content="dark">
+  <title>Producto ConSentido</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section id="login" class="login-screen">
+    <div class="login-scene" aria-hidden="true">
+      <i class="scene-orb orb-blue"></i>
+      <i class="scene-orb orb-red"></i>
+      <i class="scene-grid"></i>
+      <i class="scene-beam beam-one"></i>
+      <i class="scene-beam beam-two"></i>
+    </div>
+
+    <div class="login-shell">
+      <header class="login-product">
+        <span class="product-code">BOTA0068</span>
+        <span class="product-role">Producto ConSentido</span><h1 id="loginProductName">Botanas Riquísimos</h1>
+        <div class="product-line"></div>
+      </header>
+
+      <section class="login-card">
+        <div class="login-card-glow"></div>
+        <div class="access-head">
+          <span class="app-icon" data-icon="spark"></span>
+          <div>
+            <small>ACCESO</small>
+            <h2>Entrar</h2>
+          </div>
+        </div>
+        <form id="loginForm">
+          <label>
+            <span>Usuario</span>
+            <select id="userInput" autocomplete="username" required>
+              <option value="" selected disabled>Selecciona tu usuario</option>
+              <option value="ventas">Ventas</option>
+              <option value="omar">Omar</option>
+              <option value="alicia">Alicia</option>
+              <option value="erick">Erick</option>
+            </select>
+          </label>
+          <label>
+            <span>Contraseña</span>
+            <input id="passInput" type="password" autocomplete="current-password" placeholder="Contraseña" required>
+          </label>
+          <button type="submit">Continuar <span>→</span></button>
+          <p id="loginError" class="form-error" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+  </section>
+
+  <div id="app" class="app hidden">
+    <aside class="app-rail">
+      <div class="rail-product">
+        <span>PC</span>
+        <i></i>
+      </div>
+      <nav class="rail-nav" aria-label="Navegación principal">
+        <button class="rail-item active" data-target="inicio" title="Inicio">
+          <span data-icon="home"></span><small>Inicio</small>
+        </button>
+        <button class="rail-item" data-target="desempeno" title="Ritmo">
+          <span data-icon="pulse"></span><small>Ritmo</small>
+        </button>
+        <button class="rail-item" data-target="acciones" title="Acciones">
+          <span data-icon="bolt"></span><small>Acciones</small>
+        </button>
+        <button class="rail-item" data-target="tiendas" title="Tiendas">
+          <span data-icon="store"></span><small>Tiendas</small>
+        </button>
+      </nav>
+      <div class="rail-user">
+        <div id="userAvatar" class="avatar">V</div>
+        <button id="logout" class="rail-logout" title="Cerrar sesión">
+          <span data-icon="logout"></span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="app-body">
+      <header class="app-header">
+        <div class="header-title">
+          <div class="product-visual">
+            <span class="product-code">BOTA0068</span>
+            <small class="product-role">Producto ConSentido</small><strong id="headerProductName">Botanas Riquísimos surtido grande 1 pz</strong>
+          </div>
+          <div class="header-copy">
+            <h2 id="pageTitle">Pulso comercial</h2>
+            <p id="freshness" class="header-sub"></p>
+          </div>
+        </div>
+        <div class="header-controls">
+          <button id="filterToggle" class="filter-toggle">
+            <span data-icon="filter"></span><b>Vista y filtros</b><i id="activeFilters">0</i>
+          </button>
+          <div id="desktopFilters" class="filter-row"><span class="filter-note">El canal recalcula los KPIs · el estado filtra las tiendas</span>
+            <select id="channelFilter"><option value="all">Todos los canales</option></select>
+            <select id="statusFilter">
+              <option value="all">Todos los estados</option>
+              <option value="en_ritmo">En ritmo</option>
+              <option value="recuperable">Recuperable</option>
+              <option value="critica">Crítica</option>
+            </select>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section id="inicio" class="executive-hero">
+          <div class="hero-shape hero-shape-blue"></div>
+          <div class="hero-shape hero-shape-red"></div>
+          <div class="hero-main">
+            <div class="hero-topline">
+              <div class="hero-context"><span class="live-dot"></span> LECTURA DEL DÍA</div>
+              <div class="hero-selectors">
+              <label id="scopeControl" class="scope-control hidden">
+                <span>Vista ejecutiva</span>
+                <select id="scopeSupervisor">
+                  <option value="all">Vista general</option>
+                </select>
+              </label>
+              <div class="metric-slicer" role="group" aria-label="Unidad de lectura">
+                <button type="button" class="active" data-metric-mode="money">Dinero</button>
+                <button type="button" data-metric-mode="pieces">Piezas</button>
+              </div>
+            </div>
+            </div>
+            <h3 id="heroTitle">Calculando desempeño...</h3>
+            <p id="heroText"></p>
+            <div id="heroActions" class="hero-chips"></div>
+          </div>
+          <div class="hero-meter">
+            <div class="meter-top">
+              <span>Avance contra meta</span><strong id="heroPct">0%</strong>
+            </div>
+            <div class="meter-track">
+              <i id="heroBar"></i><b id="expectedMark" title="Esperado al corte"></b>
+            </div>
+            <div class="meter-footer">
+              <span id="heroProjection">Proyección pendiente</span>
+              <span id="heroExpected">Esperado al corte</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="kpis" class="metric-strip"></section>
+
+        <section class="briefing-grid">
+          <article class="brief-card pre-impulse-card">
+            <div class="brief-icon blue"><span data-icon="history"></span></div>
+            <div>
+              <span class="brief-label">Ritmo antes del impulso</span>
+              <strong id="briefBefore">$0</strong>
+              <small id="briefBeforeText">promedio diario del 1 al 15 de julio</small>
+            </div>
+          </article>
+          <article class="brief-card emphasis">
+            <div class="brief-icon"><span data-icon="target"></span></div>
+            <div>
+              <span class="brief-label">Ritmo necesario</span>
+              <strong id="briefDaily">$0</strong>
+              <small id="briefDailyText">por día para llegar</small>
+            </div>
+          </article>
+          <article class="brief-card">
+            <div class="brief-icon blue"><span data-icon="focus"></span></div>
+            <div>
+              <span class="brief-label">Concentración de brecha</span>
+              <strong id="briefConcentration">0%</strong>
+              <small id="briefConcentrationText">en las 5 tiendas con mayor brecha</small>
+            </div>
+          </article>
+          <article class="brief-card">
+            <div class="brief-icon red"><span data-icon="boxes"></span></div>
+            <div>
+              <span class="brief-label">Riesgo de inventario</span>
+              <strong id="briefStock">0 tiendas</strong>
+              <small id="briefStockText">requieren resurtido</small>
+            </div>
+          </article>
+        </section>
+
+        <section id="desempeno" class="content-grid">
+          <article class="surface channel-surface">
+            <div class="section-head">
+              <div>
+                <span class="section-kicker">Canales</span>
+                <h3>Avance y trayectoria</h3>
+              </div>
+              <span class="context-pill">Venta Total</span>
+            </div>
+            <div class="status-legend" aria-label="Criterio de estatus">
+      <span><i class="legend-dot critical"></i>Crítica: menos de 85% del esperado</span>
+      <span><i class="legend-dot recoverable"></i>Recuperable: 85% a 99.9%</span>
+      <span><i class="legend-dot ontrack"></i>En ritmo: 100% o más</span>
+    </div>
+    <div id="channelList" class="channel-list"></div>
+          </article>
+
+          <article class="surface supervisor-surface">
+            <div class="section-head">
+              <div>
+                <span class="section-kicker">Responsables</span>
+                <h3 id="supervisorPanelTitle">Pulso por supervisor</h3>
+              </div>
+              <span id="trajectoryTag" class="context-pill">Corte</span>
+            </div>
+            <div id="supervisorBoard" class="supervisor-board"></div>
+          </article>
+        </section>
+
+        <section id="acciones" class="surface action-surface">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">Intervención</span>
+              <h3>Prioridades de hoy</h3>
+            </div>
+            <span id="priorityCount" class="context-pill alert">0 críticas</span>
+          </div>
+          <div id="priorityGrid" class="priority-grid"></div>
+        </section>
+
+        <section id="tiendas" class="surface stores-surface">
+          <div class="section-head stores-head">
+            <div>
+              <span class="section-kicker">Tiendas</span>
+              <h3>Seguimiento operativo</h3>
+            </div>
+            <div class="store-tools">
+              <span id="detailScope" class="context-pill detail-scope">Todas las tiendas</span>
+              <label class="search-box">
+                <span data-icon="search"></span>
+                <input id="search" placeholder="Buscar tienda">
+              </label>
+            </div>
+          </div>
+          <div class="desktop-table table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tienda</th><th>Responsable</th><th id="thActual">Venta actual</th><th id="thExpected">Esperado corte</th>
+                  <th id="thGoal">Meta final</th><th>Trayectoria</th><th id="thGap">Faltante</th>
+                  <th id="thDaily">Requerido/día</th><th>Stock</th><th>Estado</th>
+                </tr>
+              </thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+          <div id="mobileStoreList" class="mobile-store-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Navegación móvil">
+      <button class="active" data-target="inicio"><span data-icon="home"></span><small>Inicio</small></button>
+      <button data-target="desempeno"><span data-icon="pulse"></span><small>Ritmo</small></button>
+      <button data-target="acciones"><span data-icon="bolt"></span><small>Acciones</small></button>
+      <button data-target="tiendas"><span data-icon="store"></span><small>Tiendas</small></button>
+    </nav>
+  </div>
+
+  <div id="filterSheet" class="filter-sheet hidden" aria-hidden="true">
+    <button id="filterBackdrop" class="sheet-backdrop" aria-label="Cerrar filtros"></button>
+    <section class="sheet-card">
+      <div class="sheet-handle"></div>
+      <div class="sheet-head">
+        <div><span class="section-kicker">Vista</span><h3>Vista y filtros</h3><p class="sheet-note">El canal modifica los KPIs; el estado sólo filtra tiendas.</p></div>
+        <button id="closeFilters" class="icon-button">×</button>
+      </div>
+      <div class="sheet-fields"></div>
+      <button id="applyFilters" class="primary-button">Aplicar</button>
+    </section>
+  </div>
+
+  <dialog id="detailModal">
+    <button id="closeModal" class="modal-close">×</button>
+    <div id="modalBody"></div>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
