@@ -1,0 +1,13 @@
+PRODUCTO CONSENTIDO · LIVE
+
+Archivos públicos:
+- index.html
+- app.js
+- styles.css
+- data.js
+- .nojekyll
+
+Corrección principal:
+- El index carga styles.css, data.js y app.js con una versión distinta en cada apertura.
+- Esto evita que GitHub Pages o el navegador muestren datos del día anterior.
+- data.js siempre se carga antes que app.js.

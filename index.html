@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#030609">
   <meta name="color-scheme" content="dark">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Producto ConSentido</title>
-  <link rel="stylesheet" href="styles.css">
+  <link id="appStyles" rel="stylesheet" href="styles.css">
 </head>
 <body>
   <section id="login" class="login-screen">
@@ -284,7 +287,31 @@
     <div id="modalBody"></div>
   </dialog>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script>
+    (() => {
+      const version = Date.now().toString();
+      const stylesheet = document.getElementById("appStyles");
+      if (stylesheet) stylesheet.href = `styles.css?v=${version}`;
+
+      const loadScript = src => new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = `${src}?v=${version}`;
+        script.onload = resolve;
+        script.onerror = () => reject(new Error(`No se pudo cargar ${src}`));
+        document.body.appendChild(script);
+      });
+
+      loadScript("data.js")
+        .then(() => loadScript("app.js"))
+        .catch(error => {
+          console.error(error);
+          document.body.innerHTML =
+            '<main style="padding:24px;color:white;font-family:Segoe UI;background:#050b10;min-height:100vh">' +
+            '<h1>No se pudieron cargar los datos</h1>' +
+            '<p>Recarga la página. Si continúa, valida la publicación de data.js.</p>' +
+            '</main>';
+        });
+    })();
+  </script>
 </body>
 </html>
