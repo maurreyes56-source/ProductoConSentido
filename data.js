@@ -1,5 +1,5 @@
 window.PC_DATA = {
-    "actualizado":  "21/07/2026 11:09",
+    "actualizado":  "21/07/2026 11:12",
     "corteDia":  21,
     "diasRestantes":  10,
     "diasCampanaTranscurridos":  6,
